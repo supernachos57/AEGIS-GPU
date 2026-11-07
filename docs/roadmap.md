@@ -9,6 +9,7 @@ This document is a living plan, not a claim that any phase has been completed. A
 ## System overview
 
 ```mermaid
+%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
 flowchart TB
     Q["Research question"] --> A["A: HIP kernels"]
     Q --> B["B: GPU simulator"]
@@ -48,6 +49,7 @@ flowchart TB
 ## Phase dependencies
 
 ```mermaid
+%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
 flowchart TB
     P0["0: Setup"] --> P1["1: GEMM"]
     P1 --> P2["2: Benchmarks"]
