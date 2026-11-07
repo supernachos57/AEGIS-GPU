@@ -25,7 +25,7 @@ The nine-phase plan is a starting estimate, not a fixed deadline.
 | 8 | Architectural experiments and final report | 20–35 |
 | **Total** | | **238–377** |
 
-A detailed phase-by-phase plan, deliverables, dependencies, and acceptance criteria will be added in `docs/roadmap.md`.
+For phase objectives, deliverables, dependencies, acceptance criteria, scheduling estimates, and Mermaid diagrams, see the **[detailed development roadmap](docs/roadmap.md)**.
 
 ## Engineering methodology
 
