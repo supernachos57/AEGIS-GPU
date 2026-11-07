@@ -8,19 +8,25 @@ This document is a living plan, not a claim that any phase has been completed. A
 
 ## System overview
 
-```mermaid
-flowchart LR
-    Q["Research question / hypothesis"] --> A["Component A: HIP kernels"]
-    A --> V["Correctness validation"]
-    V --> M["Reproducible benchmarks"]
-    M --> D["Measurements and bottleneck analysis"]
-    D --> C["Comparison: prediction vs measurement"]
-    Q --> B["Component B: C++ GPU simulator"]
-    B --> P["Predicted performance trends"]
+\`\`\`mermaid
+flowchart TB
+    Q["Research question"] --> A["A: HIP kernels"]
+    Q --> B["B: GPU simulator"]
+    subgraph Real_GPU["Real GPU"]
+        direction TB
+        A --> V["Validate results"]
+        V --> M["Benchmark"]
+        M --> D["Analyze bottlenecks"]
+    end
+    subgraph Model["Architecture model"]
+        direction TB
+        B --> P["Predict trends"]
+    end
+    D --> C["Compare results"]
     P --> C
-    C --> F["Document discrepancies and refine assumptions"]
+    C --> F["Review differences"]
     F --> Q
-```
+\`\`\`
 
 **Interpretation:** The simulator is an intentionally simplified model, not a proprietary AMD GPU replica. Benchmark observations should inform hypotheses and calibration, but tuning must not be mistaken for independent validation.
 
@@ -41,21 +47,21 @@ flowchart LR
 
 ## Phase dependencies
 
-```mermaid
-flowchart TD
-    P0["0 · Foundation"] --> P1["1 · GEMM baseline"]
-    P1 --> P2["2 · Benchmarking"]
-    P2 --> P3["3 · GEMM investigations"]
-    P2 --> P4["4 · Additional workloads"]
+\`\`\`mermaid
+flowchart TB
+    P0["0: Setup"] --> P1["1: GEMM"]
+    P1 --> P2["2: Benchmarks"]
+    P2 --> P3["3: Optimize GEMM"]
+    P2 --> P4["4: ML workloads"]
     P3 --> P4
-    P0 --> P5["5 · Simulator foundations"]
-    P2 -. "measurement-informed assumptions" .-> P5
-    P5 --> P6["6 · Architecture modeling"]
-    P2 --> P7["7 · Simulator validation"]
+    P0 --> P5["5: Simulator core"]
+    P2 -.-> P5
+    P5 --> P6["6: Hardware models"]
+    P2 --> P7["7: Validation"]
     P4 --> P7
     P6 --> P7
-    P7 --> P8["8 · Architecture experiments & report"]
-```
+    P7 --> P8["8: Research report"]
+\`\`\`
 
 The arrows indicate **prerequisites or useful information flow**, not necessarily a strictly sequential calendar. Phase 5 can begin before Phase 4 if the interfaces and modeling assumptions are documented.
 
