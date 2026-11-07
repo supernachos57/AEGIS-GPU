@@ -8,7 +8,7 @@ This document is a living plan, not a claim that any phase has been completed. A
 
 ## System overview
 
-\`\`\`mermaid
+```mermaid
 flowchart TB
     Q["Research question"] --> A["A: HIP kernels"]
     Q --> B["B: GPU simulator"]
@@ -26,7 +26,7 @@ flowchart TB
     P --> C
     C --> F["Review differences"]
     F --> Q
-\`\`\`
+```
 
 **Interpretation:** The simulator is an intentionally simplified model, not a proprietary AMD GPU replica. Benchmark observations should inform hypotheses and calibration, but tuning must not be mistaken for independent validation.
 
@@ -47,7 +47,7 @@ flowchart TB
 
 ## Phase dependencies
 
-\`\`\`mermaid
+```mermaid
 flowchart TB
     P0["0: Setup"] --> P1["1: GEMM"]
     P1 --> P2["2: Benchmarks"]
@@ -61,7 +61,7 @@ flowchart TB
     P4 --> P7
     P6 --> P7
     P7 --> P8["8: Research report"]
-\`\`\`
+```
 
 The arrows indicate **prerequisites or useful information flow**, not necessarily a strictly sequential calendar. Phase 5 can begin before Phase 4 if the interfaces and modeling assumptions are documented.
 
